@@ -31,17 +31,6 @@ class TreeOperation{
         leftViewUtil(root.left, level + 1);
         leftViewUtil(root.right, level + 1);
     }
-    int height_of_tree(node root){
-        if (root == null){
-            return 0;
-        }
-        else{
-           int left_height =  height_of_tree(root.left);
-           int right_height = height_of_tree(root.right);
-           if (left_height > right_height){return 1 + left_height;}
-           else {return 1+right_height;}
-        }
-    }
 }
 public class Example{
     public static void main(String[] args) {
@@ -51,10 +40,7 @@ public class Example{
         for (int data:list_of_node_data) {
             root = treeOperation.add_data(root,data);
         }
-        int height = treeOperation.height_of_tree(root);
-        System.out.println(height);
-        {
-            treeOperation.leftViewUtil(root, height);
-        }
+        treeOperation.leftViewUtil(root, 1);
+
     }
 }
